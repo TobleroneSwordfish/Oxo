@@ -15,7 +15,7 @@ class Board
                     case O:
                         str.append("O");
                         break;
-                    case else:
+                    default:
                         str.append(".");
                         break;
                 }
