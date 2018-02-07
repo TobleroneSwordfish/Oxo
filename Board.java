@@ -24,7 +24,6 @@ class Board
         return str.toString();
     }
 
-<<<<<<< HEAD
     public move(Position pos)
     {
         cells[pos.row()][pos.col()] = currentPlayer;
@@ -36,7 +35,8 @@ class Board
         {
             currentPlayer = X;
         }
-=======
+    }
+
     public Position position(String s)
     {
         int r, c;
@@ -65,7 +65,6 @@ class Board
         }
 
         return new Position(r, c);
->>>>>>> 29efb5f4e188b131d6e9163c4f68d08e785586e9
     }
 
     Player cells[][];
