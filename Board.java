@@ -5,7 +5,7 @@ class Board
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < 3; i++)
         {
-            for (int j = 0; j < 3; i++)
+            for (int j = 0; j < 3; j++)
             {
                 switch (cells[i][j])
                 {
@@ -20,6 +20,7 @@ class Board
                         break;
                 }
             }
+            str.append("\n");
         }
         return str.toString();
     }
@@ -27,13 +28,13 @@ class Board
     public void move(Position pos)
     {
         cells[pos.row()][pos.col()] = currentPlayer;
-        if (currentPlayer == X)
+        if (currentPlayer == Player.X)
         {
-            currentPlayer = O;
+            currentPlayer = Player.O;
         }
         else
         {
-            currentPlayer = X;
+            currentPlayer = Player.X;
         }
     }
 
@@ -74,9 +75,9 @@ class Board
         boolean drawn = true;
         for (int i = 0; i < 3; i++)
         {
-            for (int j = 0; j < 0; j++)
+            for (int j = 0; j < 3; j++)
             {
-                if (cells[i][j] == None)
+                if (cells[i][j] == Player.None)
                 {
                     drawn = false;
                 }
@@ -84,7 +85,7 @@ class Board
         }
         if (drawn)
         {
-            return Both;
+            return Player.Both;
         }
 
         //row and col test
@@ -109,23 +110,24 @@ class Board
         {
             return cells[0][2];
         }
+        return Player.None; 
     }
     public Position[] blanks()
     {
-        int n;
+        int n = 0;
         Position blanks[];
         for (int i = 0; i < 9; i++)
         {
-            if(cells[i / 3][i % 3] == None) n++;
+            if(cells[i / 3][i % 3] == Player.None) n++;
         }
         if (n == 0) return null;
         blanks = new Position[n];
-        int i;
+        int i = 0;
         for (int r = 0; r < 3 && i < n; r++)
         {
             for (int c = 0; c < 3 && i < n; c++)
             {
-                if (cells[r][c] == None)
+                if (cells[r][c] == Player.None)
                 {
                     blanks[i] = new Position(r, c);
                     i++;
@@ -140,10 +142,10 @@ class Board
     Board()
     {
         cells = new Player[3][3];
-        currentPlayer = X;
+        currentPlayer = Player.X;
         for (int i = 0; i < 9; i++)
         {
-            cells[i / 3][i % 3] = None;
+            cells[i / 3][i % 3] = Player.None;
         }
     }
 
