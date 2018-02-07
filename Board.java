@@ -67,6 +67,50 @@ class Board
         return new Position(r, c);
     }
 
+    //chicken dinner
+    Player winner()
+    {
+        //draw test
+        boolean drawn = true;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 0; j++)
+            {
+                if (cells[i][j] == None)
+                {
+                    drawn = false;
+                }
+            }
+        }
+        if (drawn)
+        {
+            return Both;
+        }
+
+        //row and col test
+        for (int i = 0; i < 3; i++)
+        {
+            if (cells[i][0] == cells[i][1] == cells[i][2])
+            {
+                return cells[i][0];
+            }
+            if (cells[0][i] == cells[1][i] == cells[2][i])
+            {
+                return cells[0][i];
+            }
+        }
+
+        //diagonal test
+        if (cells[0][0] == cells[1][1] == cells[2][2])
+        {
+            return cells[0][0];
+        }
+        if (cells[0][2] == cells[1][1] == cells[2][0])
+        {
+            return cells[0][2];
+        }
+    }
+
     Player cells[][];
     Player currentPlayer;
     Board()
