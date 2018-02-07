@@ -24,7 +24,7 @@ class Board
         return str.toString();
     }
 
-    public move(Position pos)
+    public void move(Position pos)
     {
         cells[pos.row()][pos.col()] = currentPlayer;
         if (currentPlayer == X)
