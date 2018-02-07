@@ -21,6 +21,7 @@ class Board
                 }
             }
         }
+        return str.toString();
     }
 
     Player cells[][];
