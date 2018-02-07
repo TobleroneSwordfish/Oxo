@@ -2,7 +2,26 @@ class Board
 {
     public string toString()
     {
-        //stuff
+        StringBuilder str;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; i++)
+            {
+                switch (cells[i][j])
+                {
+                    case Player.X:
+                        str.append("X");
+                        break;
+                    case Player.O:
+                        str.append("O");
+                        break;
+                    case else:
+                        str.append(".");
+                        break;
+                }
+            }
+        }
+        return str.toString();
     }
 
     public Position position(String s)
