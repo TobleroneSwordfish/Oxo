@@ -1,6 +1,5 @@
 class Board
 {
-<<<<<<< HEAD
     public string toString()
     {
         
