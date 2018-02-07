@@ -9,10 +9,10 @@ class Board
             {
                 switch (cells[i][j])
                 {
-                    case Player.X:
+                    case X:
                         str.append("X");
                         break;
-                    case Player.O:
+                    case O:
                         str.append("O");
                         break;
                     case else:
@@ -22,6 +22,19 @@ class Board
             }
         }
         return str.toString();
+    }
+
+    public move(Position pos)
+    {
+        cells[pos.row()][pos.col()] = currentPlayer;
+        if (currentPlayer == X)
+        {
+            currentPlayer = O;
+        }
+        else
+        {
+            currentPlayer = X;
+        }
     }
 
     Player cells[][];
@@ -35,4 +48,5 @@ class Board
             cells[i / 3][i % 3] = None;
         }
     }
+
 }
