@@ -1,8 +1,8 @@
 class Board
 {
-    public string toString()
+    public String toString()
     {
-        StringBuilder str;
+        StringBuilder str = new StringBuilder();
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; i++)
