@@ -22,8 +22,7 @@ class Board
             }
         }
     }
-        
-=======
+
     Player cells[][];
     Player currentPlayer;
     Board()
@@ -34,6 +33,5 @@ class Board
         {
             cells[i / 3][i % 3] = None;
         }
->>>>>>> 3968b5549e864037fc929526f4dc70aa30ae018f
     }
 }
