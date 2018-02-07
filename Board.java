@@ -24,7 +24,7 @@ class Board
         return str.toString();
     }
 
-    public move(Position pos)
+    public void move(Position pos)
     {
         cells[pos.row()][pos.col()] = currentPlayer;
         if (currentPlayer == X)
@@ -109,6 +109,30 @@ class Board
         {
             return cells[0][2];
         }
+    }
+    public Position[] blanks()
+    {
+        int n;
+        Position blanks[];
+        for (int i = 0; i < 9; i++)
+        {
+            if(cells[i / 3][i % 3] == None) n++;
+        }
+        if (n == 0) return null;
+        blanks = new Position[n];
+        int i;
+        for (int r = 0; r < 3 && i < n; r++)
+        {
+            for (int c = 0; c < 3 && i < n; c++)
+            {
+                if (cells[r][c] == None)
+                {
+                    blanks[i] = new Position(r, c);
+                    i++;
+                }
+            }
+        }
+        return blanks;
     }
 
     Player cells[][];
